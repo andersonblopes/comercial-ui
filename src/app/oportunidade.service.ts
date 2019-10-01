@@ -6,14 +6,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OportunidadeService {
 
-  apiURL = 'http://localhost:9999/oportunidades';
+  apiUrl = 'http://localhost:9999/oportunidades';
 
-  constructor(private HttpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  listar(){
-    return this.HttpClient.get(this.apiURL);
-    
+  listar() {
+    return this.httpClient.get(this.apiUrl);
   }
 
- 
+  adicionar(oportunidade: any) {
+    return this.httpClient.post(this.apiUrl, oportunidade);
+  }
+
 }
